@@ -1,15 +1,16 @@
 <template>
   <div class="about">
-    <h1>预览docx文件</h1>
+    <h1>预览docx文件并另存为Pdf</h1>
     <div class="my-component" ref="preview">
       <input type="file" @change="preview" ref="file">
     </div>
     <button v-show="isPreview" @click="close">关闭预览</button>
     <button v-show="isPreview" @click="saveAsPdf">转存PDF</button>
-    <div v-show="isPreview" id="preview2id" ref="preview2"></div>
+    <div v-show="isPreview" id="pdfDom" ref="preview2"></div>
   </div>
 </template>
 <script>
+import getPdf from '@/utils/htmlToPdf.js'
 window.JSZip = require('jszip')
 const docx = require('docx-preview') // npm i docx-preview@0.1.4
 export default {
@@ -26,12 +27,11 @@ export default {
       }
     },
     close () {
-      document.getElementById('preview2id').innerHTML = ''
+      document.getElementById('pdfDom').innerHTML = ''
       this.isPreview = false
     },
     saveAsPdf () {
-      document.getElementById('preview2id').innerHTML = ''
-      this.isPreview = false
+      getPdf('pdf文件名')
     }
   }
 }

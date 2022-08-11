@@ -1,0 +1,23 @@
+.demo1-page {
+    width: 85%;
+    margin: 20px auto 0;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+    .index-ul {
+        width: fit-content;
+        text-align: left;
+        box-shadow: 0 1px 10px rgba($color: #000000, $alpha: .25);
+        border-radius: 6px;
+        padding: 20px;
+        >li {
+            margin: 10px 20px;
+            font-size: 20px;
+            &:hover {
+                color: #0e81ec;
+                cursor: pointer;
+            }
+        }
+    }
+}
